@@ -10,13 +10,10 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class HelloSpring {
 
-    @Autowired
-    private RestTemplate restTemplate;
+
 
     @GetMapping("/getuid/{id}")
     public String getRequestParam(@PathVariable("id")int userid) {
-
-        Quote qt = restTemplate.getForObject("https://gturnquist-quoters.cfapps.io/api/random", Quote.class);
-        return "getRequestParam:" + userid + qt.toString();
+        return "getRequestParam:" + userid;
     }
 }

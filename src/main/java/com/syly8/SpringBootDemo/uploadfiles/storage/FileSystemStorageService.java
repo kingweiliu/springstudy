@@ -1,5 +1,7 @@
 package com.syly8.SpringBootDemo.uploadfiles.storage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -12,15 +14,19 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
 public class FileSystemStorageService implements StorageService {
-
+	private static final Logger log = LoggerFactory.getLogger(FileSystemStorageService.class);
 	private final Path rootLocation;
 
 	@Autowired
 	public FileSystemStorageService(StorageProperties properties) {
+
+		log.warn("file system storage construct :" + properties.toString());
+
 		this.rootLocation = Paths.get(properties.getLocation());
 	}
 
@@ -39,6 +45,11 @@ public class FileSystemStorageService implements StorageService {
 	@Override
 	public Stream<Path> loadAll() {
 		try {
+			Stream<Path> allfiles = Files.walk(this.rootLocation, 1);
+			for (Path p : allfiles.collect(Collectors.toList())) {
+				log.warn("path:" + this.rootLocation.relativize(p).toString());
+			}
+
 			return Files.walk(this.rootLocation, 1)
 					.filter(path -> !path.equals(this.rootLocation))
 					.map(path -> this.rootLocation.relativize(path));

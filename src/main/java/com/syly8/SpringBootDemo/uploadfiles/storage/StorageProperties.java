@@ -8,7 +8,7 @@ public class StorageProperties {
 	/**
 	 * Folder location for storing files
 	 */
-	private String location = "upload-dir";
+	private String location = "updir";
 
 	public String getLocation() {
 		return location;
@@ -18,4 +18,10 @@ public class StorageProperties {
 		this.location = location;
 	}
 
+	@Override
+	public String toString() {
+		return "StorageProperties{" +
+				"location='" + location + '\'' +
+				'}';
+	}
 }

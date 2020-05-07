@@ -14,7 +14,7 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping("/accessrest")
+    @GetMapping("/consume/accessrest")
     public String accessrest() {
         Quote qt = restTemplate.getForObject("https://gturnquist-quoters.cfapps.io/api/random", Quote.class);
         return "access rest:" + new Date().toString() + " :" + qt.toString();

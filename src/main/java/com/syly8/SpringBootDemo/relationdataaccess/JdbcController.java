@@ -19,7 +19,7 @@ public class JdbcController {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @GetMapping("/newuser")
+    @GetMapping("/jdbc/newuser")
     public String NewUser() {
         log.info("Creating tables");
 
@@ -48,7 +48,7 @@ public class JdbcController {
 
     }
 
-    @GetMapping("/getalluser")
+    @GetMapping("/jdbc/getalluser")
     public List<Customer> GetAll() {
         List<Customer> result = jdbcTemplate.query("select * from customers",
                 (rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name")));

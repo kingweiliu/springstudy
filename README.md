@@ -31,5 +31,12 @@ jdbc数据库访问
 密码：password  
 增加的html文件： hello.html  home.html  login.html
 
-* authenticatingldap ------ [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/)
+* authenticatingldap  ------ [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/)
 没有成功
+
+* handlingformsubmission ---- [Handling Form Submission
+](https://spring.io/guides/gs/handling-form-submission/)  
+/formsub/greeting  
+增加的html文件  greeting.html  result.html
+
+

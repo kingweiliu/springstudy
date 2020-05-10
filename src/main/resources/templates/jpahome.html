@@ -6,19 +6,27 @@
 </head>
 <body>
 Hello jpa!
-
+<h1>retrive</h1>
 <ul>
     <li th:each="file : ${customers}">
         <a th:href="${file}" th:text="${file}" />
     </li>
 </ul>
 
-<form target="/jpa/load" method="post">
-    firstname:<input type="input"></input> <br/>
-    secondname:<input type="input"></input><br/>
-    <input type="submit"/>
+<h1>create</h1>
+<form action="#" method="post" th:object="${customer}" th:action="@{/jpa/create}">
+    firstname:
+    <input type="text" th:field="*{firstname}"/> <br/>
+    secondname:
+    <input type="text" th:field="*{lastname}"/>
+    <input type="submit" value="Submit"/>
 </form>
-<a th:text="${current.firstName}">heheh</a>
+
+<h1>delete</h1>
+<form th:action="@{/jpa/delete}" method="post" >
+    id : <input type="text" name="cid" > <input type="submit" value="Submit">
+</form>
+
 
 </body>
 </html>

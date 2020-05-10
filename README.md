@@ -39,4 +39,18 @@ jdbc数据库访问
 /formsub/greeting  
 增加的html文件  greeting.html  result.html
 
+* validatingforminput ----- [Validating Form Input](https://spring.io/guides/gs/validating-form-input/)  
+/validform
+增加的html : validform.html  validresults.html  
+给form表单提交结果时增加一些数据验证  
+
+* accessingdatajpa ------[Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)  
+计划增加crud的全套操作，做了crd，缺u  
+/jpa/load  
+/jpa/create  
+/jpa/delete  
+
+
+
+
 
